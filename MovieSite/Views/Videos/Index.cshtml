@@ -1,0 +1,22 @@
+﻿@model IEnumerable<MovieSite.Models.Video>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2><strong>VIDEOS</strong></h2>
+<p>
+    @Html.ActionLink("Add Video", "New")
+</p>
+
+<ul>
+    @foreach(var video in Model)
+    {
+        <li>
+            <strong>@video.Title </strong>(@video.Genre) 
+            @Html.ActionLink("Edit", "Edit", new { id = video.Id})
+            @Html.ActionLink("Delete", "Delete", new { id = video.Id})
+            <br>@video.Description<br><br></li>
+    }
+</ul>
+
